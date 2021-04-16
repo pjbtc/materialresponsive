@@ -16,20 +16,20 @@ import Drawer from "@material-ui/core";
 
 const headersData = [
   {
-    label: "Listings",
-    href: "/listings",
+    label: "Home",
+    href: "/home",
   },
   {
-    label: "Mentors",
-    href: "/mentors",
+    label: "Blog",
+    href: "/blog",
   },
   {
-    label: "My Account",
-    href: "/account",
+    label: "Weather",
+    href: "/weather",
   },
   {
-    label: "Log Out",
-    href: "/logout",
+    label: "Contact",
+    href: "/contact",
   },
 ];
 
