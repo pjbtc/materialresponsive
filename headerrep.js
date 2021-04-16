@@ -125,7 +125,7 @@ const displayMobile = () => {
   };
   const femmecubatorLogo = (
     <Typography variant="h6" component="h1" className={logo}>
-      Femmecubator
+      pjtechnical Lab
     </Typography>
   );
 
