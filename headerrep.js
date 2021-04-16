@@ -150,11 +150,14 @@ const displayMobile = () => {
   useEffect(() => {
     const setResponsiveness = () => {
       return window.innerWidth < 900
-        ? setState((prevState) => ({ ...prevState, mobileView: true }))
+        ? setState((prevState) => ({ ...prevState, mobileView: true })) //First, we set up the function setResponsiveNess 
+                                                                            //and call it inside useEffect(). This takes care of setting the mobileView state 
+                                                  //to true or false depending on the innerWidth of the window.
+        
         : setState((prevState) => ({ ...prevState, mobileView: false }));
     };
     setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());
+    window.addEventListener("resize", () => setResponsiveness());//Then we add an event listener to the window object listening for when the user resizes the window and add a callback function that calls setResponsiveness
   }, []);
 
   const displayDesktop = () => {
