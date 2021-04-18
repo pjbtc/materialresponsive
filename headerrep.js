@@ -61,10 +61,32 @@ const useStyles = makeStyles(() => ({
     mobileView: false,
     drawerOpen: false,    
   });
+   
+   
 const {mobileView, drawerOpen} = state;
+   
+   useEffect(() => {
+    const setResponsiveness = () => {
+      return window.innerWidth < 900
+        ? setState((prevState) => ({ ...prevState, mobileView: true })) //First, we set up the function setResponsiveNess 
+                                                                            //and call it inside useEffect(). This takes care of setting the mobileView state 
+                                                  //to true or false depending on the innerWidth of the window.
+        
+        : setState((prevState) => ({ ...prevState, mobileView: false }));
+    };
+    setResponsiveness();
+    window.addEventListener("resize", () => setResponsiveness());//Then we add an event listener to the window object listening for when the user resizes the window and add a callback function that calls setResponsiveness
+  }, []);
 
-
-
+  const displayDesktop = () => {
+    return (
+      <Toolbar>
+        {femmecubatorLogo}
+        {getMenuButtons()}
+      </Toolbar>
+    );
+  };
+  
 const displayMobile = () => {
     const handleDrawerOpen = () =>
     setState((prevState) => ({ ...prevState, drawerOpen: true }));
@@ -101,6 +123,9 @@ const displayMobile = () => {
     );
   };
 
+
+
+
   const getDrawerChoices = () => {
     return headersData.map(({ label, href }) => { //We map through each item in the headersData collection,
                                                   // deconstructing the label and href keys from each item.
@@ -123,7 +148,7 @@ const displayMobile = () => {
     });
 
   };
-  const femmecubatorLogo = (
+  const pjtechnicalLogo = (
     <Typography variant="h6" component="h1" className={logo}>
       pjtechnical Lab
     </Typography>
@@ -147,27 +172,8 @@ const displayMobile = () => {
   };
 
   
-  useEffect(() => {
-    const setResponsiveness = () => {
-      return window.innerWidth < 900
-        ? setState((prevState) => ({ ...prevState, mobileView: true })) //First, we set up the function setResponsiveNess 
-                                                                            //and call it inside useEffect(). This takes care of setting the mobileView state 
-                                                  //to true or false depending on the innerWidth of the window.
-        
-        : setState((prevState) => ({ ...prevState, mobileView: false }));
-    };
-    setResponsiveness();
-    window.addEventListener("resize", () => setResponsiveness());//Then we add an event listener to the window object listening for when the user resizes the window and add a callback function that calls setResponsiveness
-  }, []);
+  
 
-  const displayDesktop = () => {
-    return (
-      <Toolbar>
-        {femmecubatorLogo}
-        {getMenuButtons()}
-      </Toolbar>
-    );
-  };
 
   return (
     <header> 
