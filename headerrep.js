@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect} from "react";
 import {
   AppBar,
   Toolbar,
@@ -81,7 +81,7 @@ const {mobileView, drawerOpen} = state;
   const displayDesktop = () => {
     return (
       <Toolbar>
-        {femmecubatorLogo}
+        {pjtechnicalLogo}
         {getMenuButtons()}
       </Toolbar>
     );
@@ -118,7 +118,7 @@ const displayMobile = () => {
         >
           <div className={drawerContainer}>{getDrawerChoices()}</div>
         </Drawer>
-    <div>{femmecubatorLogo}</div>
+    <div>{pjtechnicalLogo}</div>
     </Toolbar>
     );
   };
